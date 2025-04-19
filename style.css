@@ -20,6 +20,16 @@ header {
 header h1 {
   margin: 0;
   font-size: 2.5rem;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff8bf0, 0 0 40px #ff8bf0;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff8bf0, 0 0 40px #ff8bf0, 0 0 50px #ff8bf0;
+  }
 }
 
 nav {
@@ -34,92 +44,85 @@ nav a {
   padding: 0.3rem 0.7rem;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
 }
 
 nav a:hover {
   background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
 }
 
 main {
   padding: 3rem 2rem;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 footer {
   text-align: center;
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.6);
-  position: relative;
   margin-top: 4rem;
 }
 
-/* Fade-in animation */
+.intro-card {
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 3rem auto 2rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.intro-card h2 {
+  margin-bottom: 1rem;
+  color: #ffccff;
+}
+
+.intro-card p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #eee;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.blog-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  width: 280px;
+  color: #fff;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.blog-card h3 {
+  margin-top: 0;
+  color: #ffccff;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+}
+
+/* Fade-in animation for entry */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  header, main, footer {
-    animation: fadeIn 1.5s ease forwards;
-  }
-  
-  /* Glowing header */
-  header h1 {
-    animation: glow 3s ease-in-out infinite alternate;
-  }
-  
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff8bf0, 0 0 40px #ff8bf0;
-    }
-    to {
-      text-shadow: 0 0 20px #fff, 0 0 30px #ff8bf0, 0 0 40px #ff8bf0, 0 0 50px #ff8bf0;
-    }
-  }
-  
-  /* Hover animation for nav links (already good — just adding polish) */
-  nav a {
-    transition: all 0.3s ease-in-out;
-    transform: scale(1);
-  }
-  
-  nav a:hover {
-    transform: scale(1.1);
-  }
-  
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  
-  .blog-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 15px;
-    width: 280px;
-    color: #fff;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  
-  .blog-card h3 {
-    margin-top: 0;
-    color: #ffccff;
-  }
-  
-  .blog-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.4);
-  }
-  
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
