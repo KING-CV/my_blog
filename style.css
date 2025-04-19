@@ -1,39 +1,125 @@
+/* Use a Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+
 body {
-    margin: 0;
-    font-family: 'Fredoka', sans-serif;
-    background-color: #fff9c4;
-    color: #212121;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka', sans-serif;
+  color: #ffffff;
+  background: url('assets/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  color: #ffffff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+main {
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  margin-top: 4rem;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   
-  header {
-    background-color: #ff4081;
-    color: white;
-    padding: 1.5rem;
-    text-align: center;
+  header, main, footer {
+    animation: fadeIn 1.5s ease forwards;
   }
   
+  /* Glowing header */
+  header h1 {
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff8bf0, 0 0 40px #ff8bf0;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff8bf0, 0 0 40px #ff8bf0, 0 0 50px #ff8bf0;
+    }
+  }
+  
+  /* Hover animation for nav links (already good — just adding polish) */
   nav a {
-    color: white;
-    margin: 0 1rem;
-    text-decoration: none;
-    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
   }
   
   nav a:hover {
-    text-decoration: underline;
+    transform: scale(1.1);
   }
   
-  main {
-    padding: 2rem;
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
   }
   
-  footer {
-    background-color: #4caf50;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  .blog-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    width: 280px;
+    color: #fff;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .blog-card h3 {
+    margin-top: 0;
+    color: #ffccff;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.4);
   }
   

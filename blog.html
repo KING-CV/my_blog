@@ -1,7 +1,62 @@
-<main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Blog</title>
+  <link href="style.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>📝 My Blog</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
     <h2>Blog Posts</h2>
-    <ul>
-      <li><strong>Post Title</strong> - Coming soon</li>
-    </ul>
+    <div class="card-container">
+      <div class="blog-card">
+        <h3>✨ My First Post</h3>
+        <p>This is where the magic begins...</p>
+      </div>
+      <div class="blog-card">
+        <h3>🚀 Learning to Code</h3>
+        <p>It started with HTML and now we’re here.</p>
+      </div>
+      <div class="blog-card">
+        <h3>🌙 Purple Dreams</h3>
+        <p>Reflections from a late-night creator.</p>
+      </div>
+    </div>
   </main>
-  
+
+  <footer>
+    <p>Made with 💖 by You</p>
+  </footer>
+
+  <!-- 👇 Scroll Animation Script Goes Here -->
+  <script>
+    const cards = document.querySelectorAll('.blog-card');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          entry.target.style.transition = 'all 1s ease';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
